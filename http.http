@@ -1,0 +1,61 @@
+###
+GET http://localhost:3000/aprendeai/students/
+
+{}
+
+###
+GET http://localhost:3000/aprendeai/students/One/1
+Content-Type: application/json
+
+{}
+
+
+###
+POST  http://localhost:3000/aprendeai/students/createOne
+Content-Type: application/json
+
+{
+    "id": 3,
+    "name": "Gerauld",
+    "age": 30
+}
+
+###
+POST  http://localhost:3000/aprendeai/students/createMany
+Content-Type: application/json
+
+[
+    {
+        "id": 1,
+        "name": "Gerauld",
+        "age": 30
+    },
+    {
+        "id": 2,
+        "name": "Arnaldo",
+        "age": 30
+    },
+    {
+        "id": 3,
+        "name": "Crespin",
+        "age": 30
+    }
+]
+
+###
+PUT http://localhost:3000/aprendeai/students/update/1
+Content-Type: application/json
+
+{
+    "id": 1,
+    "name": "Gerauld Alterado",
+    "age": 29
+}
+
+###
+DELETE http://localhost:3000/aprendeai/students/delete/3
+Content-Type: application/json
+
+{}
+
+    
