@@ -1,5 +1,6 @@
-###
-GET http://localhost:3000/aprendeai/students/
+##### Students
+#####
+GET http://localhost:3000/aprendeai/students
 
 {}
 
@@ -57,5 +58,190 @@ DELETE http://localhost:3000/aprendeai/students/delete/3
 Content-Type: application/json
 
 {}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#####Teachers
+
+###CreateOne Teacher
+POST  http://localhost:3000/aprendeai/teachers/createOne
+Content-Type: application/json
+
+{
+    "id": 3,
+    "name": "Fake4",
+    "age": 30
+}
+
+###CreateMany Teachers
+
+POST  http://localhost:3000/aprendeai/teachers/createMany
+Content-Type: application/json
+
+[
+    {
+      "user": {
+        "id": "66371",
+        "email": "professorbiologia@demonstracao.com",
+        "name": "Demonstração Professor 2022",
+        "schoolId": "6",
+        "unitId": "291",
+        "createDate": "2022-01-27 11:26:52",
+        "permissionId": 4,
+        "classId": [
+          "1555",
+          "783",
+          "859",
+          "1366",
+          "1367",
+          "1368",
+          "1797",
+          "1839"
+        ]
+      },
+      "domain": "criativo.aletech.com.br"
+    },
+    {
+      "user": {
+        "id": 66371,
+        "email": "professorbiologia@demonstracao.com",
+        "name": "Demonstração Professor 2022",
+        "schoolId": 6,
+        "unitId": 291,
+        "classId": null,
+        "createDate": "2022-01-27 11:26:52",
+        "active": 1,
+        "permissionId": 4
+      },
+      "domain": "sabendotudo.aletech.com.br"
+    }
+  ]
+
+###
+###GetAll Teachers
+GET http://localhost:3000/aprendeai/teachers
+Content-Type: application/json
+
+{}
+
+###
+###GetOne Teacher
+GET http://localhost:3000/aprendeai/teacher/66371
+Content-Type: application/json
+
+{}
+
+###Delete Teacher
+DELETE http://localhost:3000/aprendeai/teacher/66371
+Content-Type: application/json
+
+{}
+
+###Update Teacher
+PUT http://localhost:3000/aprendeai/teacher/2
+Content-Type: application/json
+
+{
+    "id": 1,
+    "name": "Gerauld Alterado",
+    "age": 29
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+#####Domains
+
+###CreateOne Domain
+POST  http://localhost:3000/aprendeai/domains/createOne
+Content-Type: application/json
+
+{
+    "id": 3,
+    "name": "Fake4",
+    "age": 30
+}
+
+###CreateMany Domains
+
+POST  http://localhost:3000/aprendeai/domains/createMany
+Content-Type: application/json
+
+[
+    {
+        "id": 1,
+        "name": "Gerauld",
+        "age": 30
+    },
+    {
+        "id": 2,
+        "name": "Arnaldo",
+        "age": 30
+    },
+    {
+        "id": 3,
+        "name": "Crespin",
+        "age": 30
+    }
+]
+
+###
+###GetAll Domains
+GET http://localhost:3000/aprendeai/domains
+Content-Type: application/json
+
+{}
+
+###
+###GetOne Domain
+GET http://localhost:3000/aprendeai/domain/2
+Content-Type: application/json
+
+{}
+
+###Delete Domain
+DELETE http://localhost:3000/aprendeai/domain/2
+Content-Type: application/json
+
+{}
+
+###Update Domain
+PUT http://localhost:3000/aprendeai/domain/2
+Content-Type: application/json
+
+{
+    "id": 1,
+    "name": "Gerauld Alterado",
+    "age": 29
+}
+
+
+
+
+    
+
 
     
