@@ -82,9 +82,26 @@ POST  http://localhost:3000/aprendeai/teachers/createOne
 Content-Type: application/json
 
 {
-    "id": 3,
-    "name": "Fake4",
-    "age": 30
+    "user": {
+    "id": "66371",
+    "email": "professorbiologia@demonstracao.com",
+    "name": "Demonstração Professor 2022",
+    "schoolId": "6",
+    "unitId": "291",
+    "createDate": "2022-01-27 11:26:52",
+    "permissionId": 4,
+    "classId": [
+        "1555",
+        "783",
+        "859",
+        "1366",
+        "1367",
+        "1368",
+        "1797",
+        "1839"
+    ]
+    },
+    "domain": "criativo.aletech.com.br"
 }
 
 ###CreateMany Teachers
@@ -117,9 +134,9 @@ Content-Type: application/json
     },
     {
       "user": {
-        "id": 66371,
-        "email": "professorbiologia@demonstracao.com",
-        "name": "Demonstração Professor 2022",
+        "id": 66372,
+        "email": "professforbiologia@demonstracao.com",
+        "name": "Demonfstração Professor 2022",
         "schoolId": 6,
         "unitId": 291,
         "classId": null,
@@ -139,14 +156,29 @@ Content-Type: application/json
 {}
 
 ###
-###GetOne Teacher
-GET http://localhost:3000/aprendeai/teacher/66371
+###GetOne Teacher by Id
+GET http://localhost:3000/aprendeai/teacher/84349
 Content-Type: application/json
 
 {}
 
+###
+###GetOne Teacher by email 
+GET http://localhost:3000/aprendeai/teacher/email/professorbiologia@demonstracao.com
+Content-Type: application/json
+
+{}
+
+###
+###GetOne Teacher by name 
+GET http://localhost:3000/aprendeai/teacher/name/Demonstração Professor 2022
+Content-Type: application/json
+
+{}
+
+
 ###Delete Teacher
-DELETE http://localhost:3000/aprendeai/teacher/66371
+DELETE http://localhost:3000/aprendeai/teacher/66372
 Content-Type: application/json
 
 {}
@@ -176,40 +208,19 @@ Content-Type: application/json
 #####Domains
 
 ###CreateOne Domain
-POST  http://localhost:3000/aprendeai/domains/createOne
+POST  http://localhost:3000/aprendeai/domain/create
 Content-Type: application/json
 
 {
-    "id": 3,
-    "name": "Fake4",
-    "age": 30
+    "name": "Nota Máxima",
+    "domain": "www.notamaxima.com.br",
+    "logo": "www.notamaxima.com.br/logo.png",
+    "credits": 20
 }
 
-###CreateMany Domains
-
-POST  http://localhost:3000/aprendeai/domains/createMany
-Content-Type: application/json
-
-[
-    {
-        "id": 1,
-        "name": "Gerauld",
-        "age": 30
-    },
-    {
-        "id": 2,
-        "name": "Arnaldo",
-        "age": 30
-    },
-    {
-        "id": 3,
-        "name": "Crespin",
-        "age": 30
-    }
-]
 
 ###
-###GetAll Domains
+###GetAll Domains   
 GET http://localhost:3000/aprendeai/domains
 Content-Type: application/json
 
@@ -222,8 +233,15 @@ Content-Type: application/json
 
 {}
 
+###
+###GetOne Domain By Domain Name
+GET http://localhost:3000/aprendeai/domain/name/aster.coconline.com.
+Content-Type: application/json
+
+{}
+
 ###Delete Domain
-DELETE http://localhost:3000/aprendeai/domain/2
+DELETE http://localhost:3000/aprendeai/domain/16
 Content-Type: application/json
 
 {}

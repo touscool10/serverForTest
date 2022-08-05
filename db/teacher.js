@@ -1,6 +1,11 @@
 class Teacher{
 
     teachers = [];
+    schoolTeachers = [];
+    unitTeachers = [];
+    classTeachers = [];
+    teacherByNameOrEmail = null;
+
     constructor(){
         
     }
@@ -14,9 +19,53 @@ class Teacher{
         return teacher;
         //return this.teachers.filter(x => x.id == id);         
     }
+
+    findBySchool(schoolId){
+        console.log(`type of schoolId is: `, typeof(schoolId));
+        this.schoolTeachers =  this.teachers.filter(x => x.user.schoolId == schoolId);  
+
+        return this.schoolTeachers;
+    }
+    findByUnit(unitId){
+        console.log(`type of unitId is: `, typeof(unitId));
+        this.unitTeachers =  this.teachers.filter(x => x.user.unitId == unitId);  
+
+        return this.unitTeachers;
+    }
+    findByClass(classId){
+
+        this.teachers.forEach( t => {
+
+            if(t.user.classId != null){
+                if ( this.isArrayIncludeData(classId, t.user.classId) ) {
+
+                    if( !this.isArrayIncludeData(t, this.classTeachers)  ){
+                        this.classTeachers.push(t);  
+                    }
+                   
+                }
+            }
+        });
+
+        return this.classTeachers;
+    }
+    findByName(name){
+        this.teacherByNameOrEmail =  this.teachers.find(x => x.user.name == name);  
+        if (!this.teacherByNameOrEmail ) {
+            return null;
+        }
+        return this.teacherByNameOrEmail; 
+    }
+    findByEmail(email){
+
+        this.teacherByNameOrEmail =  this.teachers.find(x => x.user.email == email);  
+        if (!this.teacherByNameOrEmail ) {
+            return null;
+        }
+        return this.teacherByNameOrEmail;
+    }
     findAll() {
         return this.teachers;  
-       
     }
     create(teacher) {
         //teacher.user.id = 1;
@@ -40,7 +89,7 @@ class Teacher{
         } else{
             let index = this.teachers.indexOf(teacherFind);
             teacher.user.id = id;
-            this.users[index] = teacher ;
+            this.teachers[index] = teacher ;
             return this.teachers[index];
         } 
         
@@ -52,6 +101,16 @@ class Teacher{
             }
         });
         return this.teachers;  
+    }
+
+    isArrayIncludeData(data, arr) {
+        let result = (arr.filter(item => item == data)).length;
+    
+        if(result > 0){
+          return true;
+        } else{
+          return false;
+        }
     }
 
 
