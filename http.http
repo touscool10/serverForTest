@@ -409,7 +409,7 @@ Content-Type: application/json
 
 ###
 ###GetAll Students
-GET http://localhost:3000/aprendeai/students/class/1114
+GET http://localhost:3000/aprendeai/students/class/111444444
 Content-Type: application/json
 
 {}

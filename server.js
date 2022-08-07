@@ -31,36 +31,36 @@ app.get('/', (req, res) => {
 
 app.get('/aprendeai/student/name/:name', (req, res) => {
   const name = req.params.name;
-  res.status(200).send(JSON.stringify(StudentRepo.findByName(name)));
+  res.status(200).send(JSON.stringify({data: StudentRepo.findByName(name), error: ""}));
 })
 app.get('/aprendeai/student/email/:email', (req, res) => {
   const email = req.params.email;
-  res.status(200).send(JSON.stringify(StudentRepo.findByEmail(email)));
+  res.status(200).send(JSON.stringify({data: StudentRepo.findByEmail(email), error: ""}));
 })
 
 app.get('/aprendeai/students/class/:classId', (req, res) => {
   const classId = parseInt(req.params.classId);
-  res.status(200).send(JSON.stringify(StudentRepo.findByClass(classId)));
+  res.status(200).send(JSON.stringify({data: StudentRepo.findByClass(classId), error: ""}));
 })
 
 app.post('/aprendeai/students/createOne', (req, res) => {
   StudentRepo.create(req.body);
-  res.status(200).send(JSON.stringify(StudentRepo.findAll()));
+  res.status(200).send(JSON.stringify({data: StudentRepo.findAll(), error: ""}));
 })
 
 app.post('/aprendeai/students/createMany', (req, res) => {
   StudentRepo.createMany(req.body);
-  res.status(200).send(JSON.stringify(StudentRepo.findAll()));
+  res.status(200).send(JSON.stringify({data: StudentRepo.findAll(), error: ""}));
 })
 
 app.put('/aprendeai/students/update/:id', (req, res) => {
-  res.status(200).send(JSON.stringify( StudentRepo.update( parseInt(req.params.id), req.body ) ) );
+  res.status(200).send(JSON.stringify({data: StudentRepo.update( parseInt(req.params.id), req.body ), error: ""}) );
 })
 
 app.delete('/aprendeai/student/delete/:id', (req, res) => {
   const id = parseInt(req.params.id);
   StudentRepo.delete(id);
-  res.status(200).send(JSON.stringify(StudentRepo.findAll()));
+  res.status(200).send(JSON.stringify({data: StudentRepo.findAll(), error: ""}));
 })
 
 
