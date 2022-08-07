@@ -259,7 +259,198 @@ Content-Type: application/json
 
 
 
-    
 
 
-    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#####Students
+
+###CreateOne Student
+POST  http://localhost:3000/aprendeai/students/createOne
+Content-Type: application/json
+
+{}
+
+###CreateMany Students
+
+POST  http://localhost:3000/aprendeai/students/createMany
+Content-Type: application/json
+
+[
+  {
+    "user": {
+      "id": "85917",
+      "email": "aloisioaluno@sabendotudo.com.br",
+      "name": "Aloisio - Aluno",
+      "unit": "395",
+      "unitName": "Semiextensivo 2022",
+      "school": "162",
+      "schoolName": "Sabendo Tudo",
+      "class": "1870",
+      "className": "Semiextensivo Sabendo Tudo TOP 2022",
+      "createDate": "2022-07-01 14:15:23"
+    },
+    "domain": {
+      "externalId": "36219237-e29d-4889-b797-01a2b15db67d"
+    },
+    "credits": null
+  },
+  {
+    "user": {
+      "id": "85916",
+      "email": "denanaluno@sabendotudo.com.br",
+      "name": "Denan - Aluno",
+      "unit": "395",
+      "unitName": "Semiextensivo 2022",
+      "school": "162",
+      "schoolName": "Sabendo Tudo",
+      "class": "1870",
+      "className": "Semiextensivo Sabendo Tudo TOP 2022",
+      "createDate": "2022-07-01 14:14:48"
+    },
+    "domain": {
+      "externalId": "36219237-e29d-4889-b797-01a2b15db67d"
+    },
+    "credits": null
+  },
+  {
+    "user": {
+      "id": "85825",
+      "email": "izadora@sabendotudo.com",
+      "name": "Izadora - Sabendo Tudo",
+      "unit": "395",
+      "unitName": "Semiextensivo 2022",
+      "school": "162",
+      "schoolName": "Sabendo Tudo",
+      "class": "1870",
+      "className": "Semiextensivo Sabendo Tudo TOP 2022",
+      "createDate": "2022-06-29 19:05:47"
+    },
+    "domain": {
+      "externalId": "36219237-e29d-4889-b797-01a2b15db67d"
+    },
+    "credits": null
+  },
+  {
+    "user": {
+      "id": "85918",
+      "email": "luanaluno@sabendotudo.com.br",
+      "name": "Luan - Aluno",
+      "unit": "395",
+      "unitName": "Semiextensivo 2022",
+      "school": "162",
+      "schoolName": "Sabendo Tudo",
+      "class": "1870",
+      "className": "Semiextensivo Sabendo Tudo TOP 2022",
+      "createDate": "2022-07-01 14:18:08"
+    },
+    "domain": {
+      "externalId": "36219237-e29d-4889-b797-01a2b15db67d"
+    },
+    "credits": null
+  },
+  {
+    "user": {
+      "id": "19558",
+      "email": "vic_meirinho@live.com",
+      "name": "Victoria Meirinho",
+      "unit": "288",
+      "unitName": "Semiextensivo 2021",
+      "school": "6",
+      "schoolName": "Nota Máxima",
+      "class": "1114",
+      "className": "Semiextensivo ENEM Premium 2021",
+      "createDate": "2020-07-08 13:06:10"
+    },
+    "domain": {
+      "externalId": "36219237-e29d-4889-b797-01a2b15db67d"
+    },
+    "credits": null
+  },
+  {
+    "user": {
+      "id": "19558",
+      "email": "vic_meirinho@live.com",
+      "name": "Victoria Meirinho",
+      "unit": "288",
+      "unitName": "Semiextensivo 2021",
+      "school": "6",
+      "schoolName": "Nota Máxima",
+      "class": "1114",
+      "className": "Semiextensivo ENEM Premium 2021",
+      "createDate": "2020-07-08 13:06:10"
+    },
+    "domain": {
+      "externalId": "36219237-e29d-4889-b797-01a2b15db67d"
+    },
+    "credits": null
+  }
+]
+
+###
+###GetAll Students
+GET http://localhost:3000/aprendeai/students/class/1114
+Content-Type: application/json
+
+{}
+
+###
+###GetOne Student by email 
+GET http://localhost:3000/aprendeai/student/email/aloisioaluno@sabendotudo.com.br
+Content-Type: application/json
+
+{}
+
+###
+###GetOne Student by name 
+GET http://localhost:3000/aprendeai/student/name/Aloisio - Aluno
+Content-Type: application/json
+
+{}
+
+###Delete Student
+DELETE http://localhost:3000/aprendeai/student/delete/19558
+Content-Type: application/json
+
+{}
+
+###Update Teacher
+PUT http://localhost:3000/aprendeai/student/277
+Content-Type: application/json
+
+{}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

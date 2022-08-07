@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const User = require('./db/user');
 const Teacher = require('./db/teacher');
+const Student = require('./db/student');
 const Domain = require('./db/domain');
 const app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -18,38 +19,48 @@ app.use(function (request, response, next) {
 const port = 3000 ;
 
 const UserRepo = new User();
+const StudentRepo = new Student();
 const TeacherRepo = new Teacher();
 const DomainRepo = new Domain();
 
 //Students
 
-app.get('/aprendeai/students', (req, res) => {
-  res.status(200).send(JSON.stringify(UserRepo.findAll()));
+app.get('/', (req, res) => {
+  res.status(200).send(JSON.stringify({name:"ok"}));
 })
 
-app.get('/aprendeai/students/One/:id', (req, res) => {
-  const id = parseInt(req.params.id);
-  res.status(200).send(JSON.stringify(UserRepo.find(id)));
+app.get('/aprendeai/student/name/:name', (req, res) => {
+  const name = req.params.name;
+  res.status(200).send(JSON.stringify(StudentRepo.findByName(name)));
+})
+app.get('/aprendeai/student/email/:email', (req, res) => {
+  const email = req.params.email;
+  res.status(200).send(JSON.stringify(StudentRepo.findByEmail(email)));
+})
+
+app.get('/aprendeai/students/class/:classId', (req, res) => {
+  const classId = parseInt(req.params.classId);
+  res.status(200).send(JSON.stringify(StudentRepo.findByClass(classId)));
 })
 
 app.post('/aprendeai/students/createOne', (req, res) => {
-  UserRepo.create(req.body);
-  res.status(200).send(JSON.stringify(UserRepo.findAll()));
+  StudentRepo.create(req.body);
+  res.status(200).send(JSON.stringify(StudentRepo.findAll()));
 })
 
 app.post('/aprendeai/students/createMany', (req, res) => {
-  UserRepo.createMany(req.body);
-  res.status(200).send(JSON.stringify(UserRepo.findAll()));
+  StudentRepo.createMany(req.body);
+  res.status(200).send(JSON.stringify(StudentRepo.findAll()));
 })
 
 app.put('/aprendeai/students/update/:id', (req, res) => {
-  res.status(200).send(JSON.stringify( UserRepo.update( parseInt(req.params.id), req.body ) ) );
+  res.status(200).send(JSON.stringify( StudentRepo.update( parseInt(req.params.id), req.body ) ) );
 })
 
-app.delete('/aprendeai/students/delete/:id', (req, res) => {
+app.delete('/aprendeai/student/delete/:id', (req, res) => {
   const id = parseInt(req.params.id);
-  UserRepo.delete(id);
-  res.status(200).send(JSON.stringify(UserRepo.findAll()));
+  StudentRepo.delete(id);
+  res.status(200).send(JSON.stringify(StudentRepo.findAll()));
 })
 
 
